@@ -1,0 +1,10 @@
+
+{% if all_categories %}
+    <ul>
+        {% for category in all_categories %}
+            <li><a href = "/movies/{{category.id}}/">{{category.genre}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h3>There are no categories</h3>
+{% endif %}

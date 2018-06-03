@@ -1,16 +1,17 @@
 
 from django.http import HttpResponse
 from .models import Category
+from django.template import loader
 
 
 def index(request):
     all_categories = Category.objects.all()
-    html = ""
-    for category in all_categories:
-        url = "/movies/" + str(category.id) + "/"
-        html += "<a href = " + url + ">" + category.actor + "</a><br>"
+    template = loader.get_template("movies/index.html")
+    context = {
+        "all_categories": all_categories,
+    }
 
-    return HttpResponse(html)
+    return HttpResponse(template.render(context, request))
 
 
 def detail(request, category_id):
