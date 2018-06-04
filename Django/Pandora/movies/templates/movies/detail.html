@@ -1,0 +1,8 @@
+
+<h1> {{ category }} </h1>
+
+<ul>
+    {% for movie in category.movie_set.all %}
+        <li> {{movie}} </li>
+    {% endfor %}
+</ul>

@@ -1,8 +1,9 @@
 
+<h2> Categories: </h2>
 {% if all_categories %}
     <ul>
         {% for category in all_categories %}
-            <li><a href = "/movies/{{category.id}}/">{{category.genre}}</a></li>
+            <li><a href = "{% url 'movies:detail' category.id %}">{{category.actor}}</a></li>
         {% endfor %}
     </ul>
 {% else %}
